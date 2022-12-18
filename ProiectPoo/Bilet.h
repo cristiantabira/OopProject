@@ -25,6 +25,8 @@ public:
 	float  getPret() const;
 	int  getRand() const;
 	int  getLoc() const;
+	bool accesVIP();
+	int TVA();
 	friend istream& operator>>(istream& in, Bilet& bilet);
 	friend ostream& operator<<(ostream& out, const Bilet& bilet);
 };

@@ -29,13 +29,17 @@ int Bilet::nrBilete = 0;
           return *this;
       }
           void  Bilet::setTip(string tip) {
-              this->tip = tip; }
+              if(tip.length()>0)
+                  this->tip = tip; }
           void  Bilet::setPret(float pret) { 
+              if(pret>=0)
               this->pret = pret; }
           void  Bilet::setRand(int rand) {
+              if(rand>=0)
               this->rand = rand; }
           void  Bilet::setLoc(int loc) {
-              this->loc = loc; }
+              if(loc>=0)
+              this->loc = loc;}
 
           int  Bilet::getID() const { 
               return ID; }
@@ -58,3 +62,17 @@ int Bilet::nrBilete = 0;
               in >> bilet.tip >> bilet.pret >> bilet.rand >> bilet.loc;
               return in;
           }
+          bool Bilet::accesVIP()
+          {
+              if (tip == "VIP")
+                  return true;
+              else return false;
+          }
+          int Bilet::TVA()
+          {
+              return pret * 0.19;
+          }
+          void operator++(Bilet& b) {
+              b.setRand(b.getRand() + 1);
+          }
+
